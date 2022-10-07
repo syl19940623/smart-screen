@@ -1,0 +1,157 @@
+{
+  "sideMenu": [
+    {
+      "name": "图表",
+      "type": "chart",
+      "icon": "fa fa-bar-chart-o",
+      "children": [
+        {
+          "name": "折线图",
+          "children": [
+            {
+              "name": "基础折线图",
+              "type": "basicLineChart"
+            },
+            {
+              "name": "基础平滑折线图",
+              "type": "smoothedLine"
+            },
+            {
+              "name": "基础面积图",
+              "type": "basicAreaChart"
+            },
+            {
+              "name": "折线图堆叠",
+              "type": "stackedLineChart"
+            },
+            {
+              "name": "堆叠面积图",
+              "type": "stackedAreaChart"
+            }
+          ]
+        },
+        {
+          "name": "柱状图",
+          "children": [
+            {
+              "name": "基础柱状图",
+              "type": "basicBar"
+            },
+            {
+              "name": "多系列柱状图",
+              "type": "simpleExampleOfDataset"
+            },
+            {
+              "name": "堆叠条形图",
+              "type": "stackedHorizontalBar"
+            },
+            {
+              "name": "正负条形图",
+              "type": "barChartWithNegativeValue"
+            },
+            {
+              "name": "折柱混合",
+              "type": "mixedLineAndBar"
+            }
+          ]
+        },
+        {
+          "name": "饼图",
+          "children": [
+            {
+              "name": "基础饼图",
+              "type": "basicPie"
+            },
+            {
+              "name": "圆角环形图",
+              "type": "doughnutChartWithRoundedCorner"
+            },
+            {
+              "name": "南丁格尔玫瑰图",
+              "type": "nightingaleChart"
+            }
+          ]
+        },
+        {
+          "name": "地图"
+        },
+        {
+          "name": "更多",
+          "children": [
+            {
+              "name": "漏斗图",
+              "type": "funnelChart"
+            },
+            {
+              "name": "基础仪表盘",
+              "type": "gaugeBasicChart"
+            },
+            {
+              "name": "阶段仪表盘",
+              "type": "stageGauge"
+            },
+            {
+              "name": "时钟",
+              "type": "clock"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "信息",
+      "type": "info",
+      "icon": "fa fa-font",
+      "children": [
+        {
+          "name": "文本"
+        },
+        {
+          "name": "标题"
+        },
+        {
+          "name": "更多"
+        }
+      ]
+    },
+    {
+      "name": "列表",
+      "type": "list",
+      "icon": "fa fa-list",
+      "children": [
+        {
+          "name": "分页列表"
+        },
+        {
+          "name": "滚动列表"
+        }
+      ]
+    },
+    {
+      "name": "表格",
+      "type": "table",
+      "icon": "fa fa-table",
+      "children": [
+        {
+          "name": "分页表格"
+        }
+      ]
+    },
+    {
+      "name": "组件",
+      "type": "component",
+      "icon": "fa fa-cube",
+      "children": [
+        {
+          "name": "边框"
+        },
+        {
+          "name": "装饰"
+        },
+        {
+          "name": "更多"
+        }
+      ]
+    }
+  ]
+}
