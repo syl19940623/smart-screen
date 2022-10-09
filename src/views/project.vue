@@ -110,6 +110,17 @@
           <h1>背景色</h1>
           <input type="color" v-model="pageBgcolor">
         </div>
+        <div class="pageBgControl">
+          <h1>背景控制</h1>
+          <div class="pageBgControlItem">
+            <span :style="pageBg === '' ? '' : {'background': $store.state.activeColor}" @click="pageBg = ''">
+              清除背景
+            </span>
+            <span :style="pageBgcolor === 'transparent' ? '' : {'background': $store.state.activeColor}" @click="pageBgcolor = 'transparent'">
+              清除颜色
+            </span>
+          </div>
+        </div>
         <div class="previewMode">
           <h1>预览方式</h1>
           <div class="previewModeItem">
@@ -121,7 +132,7 @@
         </div>
         <div class="chartTheme">
           <h1>图表主题</h1>
-          <div class="chartThemeItem" v-for="(item, index) in chartThemeList" :style="chartThemeIndex === index ? {'border': '1px solid ' + $store.state.activeColor} : ''">
+          <div class="chartThemeItem" v-for="(item, index) in chartThemeList" :style="chartThemeIndex === index ? {'border': '1px solid ' + $store.state.activeColor} : ''" @click="chartThemeIndex = index">
             <div class="colorItem" v-for="childItem in item" :style="{'background': childItem}"></div>
           </div>
         </div>
@@ -174,7 +185,7 @@
         pageWidth: 1080,
         pageHeight: 760,
         pageBg: '',
-        pageBgcolor: '#ffffff',
+        pageBgcolor: 'transparent',
         previewModeList: [
           {
             type: 'adaptive',
@@ -199,7 +210,10 @@
         ],
         previewMode: 'adaptive',
         chartThemeList: [
-          ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc']
+          ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'],
+          ['#c23531','#2f4554','#61a0a8','#d48265','#91c7ae','#749f83','#ca8622','#bda29a','#546570'],
+          ['#dd6b66', '#759aa0', '#ea7e53', '#eedd78', '#73a373', '#73b9bc', '#7289ab', '#91ca8c', '#f49f42'],
+          ['#37A2DA', '#9FE6B8', '#FFDB5C', '#ff9f7f', '#E062AE', '#E690D1', '#9d96f5', '#8378EA', '#96BFFF']
         ],
         chartThemeIndex: 0,
         vLine: [],
@@ -408,6 +422,12 @@
         h1{margin-bottom: 6px;}
         input{width: 100%;border: 1px solid var(--border);height: 36px;background: var(--bg1);cursor: pointer;border-radius: 2px;}
       }
+      .pageBgControl{margin-top: 12px;
+        h1{margin-bottom: 6px;}
+        .pageBgControlItem{border: 1px solid var(--border);border-radius: 2px;display: flex;padding: 6px;background: var(--bg1);
+          span{flex: 1;text-align: center;cursor: pointer;border-radius: 2px;font-size: 12px;line-height: 24px;}
+        }
+      }
       .previewMode{margin-top: 12px;
         h1{margin-bottom: 6px;}
         .previewModeItem{border: 1px solid var(--border);border-radius: 2px;display: flex;padding: 6px;background: var(--bg1);
@@ -419,7 +439,7 @@
       }
       .chartTheme{margin-top: 12px;
         h1{margin-bottom: 6px;}
-        .chartThemeItem{border: 1px solid var(--border);padding: 6px;border-radius: 18px;display: flex;justify-content: space-around;background: var(--bg1);cursor: pointer;
+        .chartThemeItem{border: 1px solid var(--border);padding: 6px;border-radius: 18px;display: flex;justify-content: space-around;background: var(--bg1);cursor: pointer;margin-bottom: 12px;
           .colorItem{width: 24px;height: 24px;border-radius: 50%;}
         }
       }

@@ -36,66 +36,110 @@
       switch (this.type) {
         case 'basicLineChart':
           option = {
+            tooltip: {
+              trigger: 'axis'
+            },
+            grid: {
+              left: '1%',
+              right: '4%',
+              bottom: '1%',
+              containLabel: true
+            },
             xAxis: {
-              type: 'category',
-              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+              type: 'category'
             },
             yAxis: {
               type: 'value'
             },
+            dataset: {
+              source: [
+                ['week'],
+                ['周一', 43.3],
+                ['周二', 83.1],
+                ['周三', 79.4],
+                ['周四', 38.5],
+                ['周五', 42.6],
+                ['周六', 95.8],
+                ['周日', 112.4]
+              ]
+            },
             series: [
-              {
-                data: [150, 230, 224, 218, 135, 147, 260],
-                type: 'line',
-                label: {
-                  show: true,
-                  position: 'top',
-                  textStyle: {
-                    fontSize: 12
-                  }
-                }
-              }
+              { type: 'line' }
             ]
           };
           break;
         case 'smoothedLine':
           option = {
+            tooltip: {
+              trigger: 'axis'
+            },
+            grid: {
+              left: '1%',
+              right: '4%',
+              bottom: '1%',
+              containLabel: true
+            },
             xAxis: {
-              type: 'category',
-              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+              type: 'category'
             },
             yAxis: {
               type: 'value'
             },
+            dataset: {
+              source: [
+                ['week', '销售额', '净利润'],
+                ['周一', 820, 300],
+                ['周二', 932, 100],
+                ['周三', 901, 57],
+                ['周四', 934, 262],
+                ['周五', 1290, 577],
+                ['周六', 1330, 1098],
+                ['周日', 1320, 975]
+              ]
+            },
             series: [
               {
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
                 type: 'line',
-                label: {
-                  show: true,
-                  position: 'top',
-                  textStyle: {
-                    fontSize: 12
-                  }
-                },
                 smooth: true
+              },
+              {
+                type: 'line'
               }
             ]
           };
           break;
         case 'basicAreaChart':
           option = {
+            tooltip: {
+              trigger: 'axis'
+            },
+            grid: {
+              left: '1%',
+              right: '4%',
+              bottom: '1%',
+              containLabel: true
+            },
             xAxis: {
               type: 'category',
-              boundaryGap: false,
-              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+              boundaryGap: false
             },
             yAxis: {
               type: 'value'
             },
+            dataset: {
+              source: [
+                ['week', '销售额'],
+                ['周一', 820],
+                ['周二', 932],
+                ['周三', 901],
+                ['周四', 934],
+                ['周五', 1290],
+                ['周六', 1330],
+                ['周日', 1320]
+              ]
+            },
             series: [
               {
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
                 type: 'line',
                 areaStyle: {}
               }
@@ -107,58 +151,43 @@
             tooltip: {
               trigger: 'axis'
             },
-            legend: {
-              data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
-            },
             grid: {
-              left: '3%',
+              left: '1%',
               right: '4%',
-              bottom: '3%',
+              bottom: '1%',
               containLabel: true
             },
-            toolbox: {
-              feature: {
-                saveAsImage: {}
-              }
+            legend: {
+              data: ['Email', 'Video', 'Direct']
             },
             xAxis: {
               type: 'category',
-              boundaryGap: false,
-              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+              boundaryGap: false
             },
             yAxis: {
               type: 'value'
             },
+            dataset: {
+              source: [
+                ['week', 'Email', 'Video', 'Direct'],
+                ['周一', 120, 180, 420],
+                ['周二', 132, 232, 332],
+                ['周三', 101, 201, 301],
+                ['周四', 134, 154, 334],
+                ['周五', 90, 190, 390],
+                ['周六', 230, 330, 380],
+                ['周日', 210, 410, 520]
+              ]
+            },
             series: [
               {
-                name: 'Email',
-                type: 'line',
-                stack: 'Total',
-                data: [120, 132, 101, 134, 90, 230, 210]
+                type: 'line'
               },
               {
-                name: 'Union Ads',
-                type: 'line',
-                stack: 'Total',
-                data: [220, 182, 191, 234, 290, 330, 310]
+                type: 'line'
               },
               {
-                name: 'Video Ads',
-                type: 'line',
-                stack: 'Total',
-                data: [150, 232, 201, 154, 190, 330, 410]
-              },
-              {
-                name: 'Direct',
-                type: 'line',
-                stack: 'Total',
-                data: [320, 332, 301, 334, 390, 330, 320]
-              },
-              {
-                name: 'Search Engine',
-                type: 'line',
-                stack: 'Total',
-                data: [820, 932, 901, 934, 1290, 1330, 1320]
+                type: 'line'
               }
             ]
           };
@@ -175,24 +204,18 @@
               }
             },
             legend: {
-              data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
-            },
-            toolbox: {
-              feature: {
-                saveAsImage: {}
-              }
+              data: ['Email', 'Video', 'Direct']
             },
             grid: {
-              left: '3%',
+              left: '1%',
               right: '4%',
-              bottom: '3%',
+              bottom: '1%',
               containLabel: true
             },
             xAxis: [
               {
                 type: 'category',
-                boundaryGap: false,
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                boundaryGap: false
               }
             ],
             yAxis: [
@@ -200,60 +223,42 @@
                 type: 'value'
               }
             ],
+            dataset: {
+              source: [
+                ['week', 'Email', 'Video', 'Direct'],
+                ['周一', 120, 180, 420],
+                ['周二', 132, 232, 332],
+                ['周三', 101, 201, 301],
+                ['周四', 134, 154, 334],
+                ['周五', 90, 190, 390],
+                ['周六', 230, 330, 380],
+                ['周日', 210, 410, 520]
+              ]
+            },
             series: [
               {
-                name: 'Email',
                 type: 'line',
                 stack: 'Total',
                 areaStyle: {},
                 emphasis: {
                   focus: 'series'
-                },
-                data: [120, 132, 101, 134, 90, 230, 210]
+                }
               },
               {
-                name: 'Union Ads',
                 type: 'line',
                 stack: 'Total',
                 areaStyle: {},
                 emphasis: {
                   focus: 'series'
-                },
-                data: [220, 182, 191, 234, 290, 330, 310]
+                }
               },
               {
-                name: 'Video Ads',
                 type: 'line',
                 stack: 'Total',
                 areaStyle: {},
                 emphasis: {
                   focus: 'series'
-                },
-                data: [150, 232, 201, 154, 190, 330, 410]
-              },
-              {
-                name: 'Direct',
-                type: 'line',
-                stack: 'Total',
-                areaStyle: {},
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [320, 332, 301, 334, 390, 330, 320]
-              },
-              {
-                name: 'Search Engine',
-                type: 'line',
-                stack: 'Total',
-                label: {
-                  show: true,
-                  position: 'top'
-                },
-                areaStyle: {},
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [820, 932, 901, 934, 1290, 1330, 1320]
+                }
               }
             ]
           };
