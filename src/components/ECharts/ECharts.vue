@@ -37,7 +37,10 @@
         case 'basicLineChart':
           option = {
             tooltip: {
-              trigger: 'axis'
+              trigger: 'axis',
+              axisPointer: {
+                type: 'shadow'
+              }
             },
             grid: {
               left: '1%',
@@ -71,7 +74,10 @@
         case 'smoothedLine':
           option = {
             tooltip: {
-              trigger: 'axis'
+              trigger: 'axis',
+              axisPointer: {
+                type: 'shadow'
+              }
             },
             grid: {
               left: '1%',
@@ -111,7 +117,10 @@
         case 'basicAreaChart':
           option = {
             tooltip: {
-              trigger: 'axis'
+              trigger: 'axis',
+              axisPointer: {
+                type: 'shadow'
+              }
             },
             grid: {
               left: '1%',
@@ -149,7 +158,10 @@
         case 'stackedLineChart':
           option = {
             tooltip: {
-              trigger: 'axis'
+              trigger: 'axis',
+              axisPointer: {
+                type: 'shadow'
+              }
             },
             grid: {
               left: '1%',
@@ -197,10 +209,7 @@
             tooltip: {
               trigger: 'axis',
               axisPointer: {
-                type: 'cross',
-                label: {
-                  backgroundColor: '#6a7985'
-                }
+                type: 'shadow'
               }
             },
             legend: {
@@ -265,16 +274,38 @@
           break;
         case 'basicBar':
           option = {
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                type: 'shadow'
+              }
+            },
+            grid: {
+              left: '1%',
+              right: '4%',
+              bottom: '1%',
+              containLabel: true
+            },
             xAxis: {
-              type: 'category',
-              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+              type: 'category'
             },
             yAxis: {
               type: 'value'
             },
+            dataset: {
+              source: [
+                ['week', '销售额'],
+                ['周一', 120],
+                ['周二', 132],
+                ['周三', 101],
+                ['周四', 134],
+                ['周五', 90],
+                ['周六', 230],
+                ['周日', 210]
+              ]
+            },
             series: [
               {
-                data: [120, 200, 150, 80, 70, 110, 130],
                 type: 'bar'
               }
             ]
@@ -282,20 +313,41 @@
           break;
         case 'simpleExampleOfDataset':
           option = {
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                type: 'shadow'
+              }
+            },
+            grid: {
+              left: '1%',
+              right: '4%',
+              bottom: '1%',
+              containLabel: true
+            },
             xAxis: {
-              type: 'category',
-              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+              type: 'category'
             },
             yAxis: {
               type: 'value'
             },
+            dataset: {
+              source: [
+                ['week', '产出', '收入'],
+                ['周一', 120, 71],
+                ['周二', 200, 120],
+                ['周三', 150, 230],
+                ['周四', 80, 190],
+                ['周五', 70, 80],
+                ['周六', 110, 30],
+                ['周日', 130, 110]
+              ]
+            },
             series: [
               {
-                data: [120, 200, 150, 80, 70, 110, 130],
                 type: 'bar'
               },
               {
-                data: [71, 120, 230, 190, 80, 30, 110],
                 type: 'bar'
               }
             ]
@@ -309,21 +361,56 @@
                 type: 'shadow'
               }
             },
-            legend: {},
             grid: {
-              left: '3%',
+              left: '1%',
               right: '4%',
-              bottom: '3%',
+              bottom: '1%',
               containLabel: true
             },
+            legend: {
+              data: ['Email', 'Video', 'Direct']
+            },
             xAxis: {
-              type: 'category',
-              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+              type: 'category'
             },
             yAxis: {
               type: 'value'
             },
+            dataset: {
+              source: [
+                ['week', 'Email', 'Video', 'Direct'],
+                ['周一', 120, 180, 420],
+                ['周二', 132, 232, 332],
+                ['周三', 101, 201, 301],
+                ['周四', 134, 154, 334],
+                ['周五', 90, 190, 390],
+                ['周六', 230, 330, 380],
+                ['周日', 210, 410, 520]
+              ]
+            },
             series: [
+              {
+                name: 'Email',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                  show: true
+                },
+                emphasis: {
+                  focus: 'series'
+                }
+              },
+              {
+                name: 'Video',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                  show: true
+                },
+                emphasis: {
+                  focus: 'series'
+                }
+              },
               {
                 name: 'Direct',
                 type: 'bar',
@@ -333,56 +420,7 @@
                 },
                 emphasis: {
                   focus: 'series'
-                },
-                data: [320, 302, 301, 334, 390, 330, 320]
-              },
-              {
-                name: 'Mail Ad',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                  show: true
-                },
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [120, 132, 101, 134, 90, 230, 210]
-              },
-              {
-                name: 'Affiliate Ad',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                  show: true
-                },
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [220, 182, 191, 234, 290, 330, 310]
-              },
-              {
-                name: 'Video Ad',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                  show: true
-                },
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [150, 212, 201, 154, 190, 330, 410]
-              },
-              {
-                name: 'Search Engine',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                  show: true
-                },
-                emphasis: {
-                  focus: 'series'
-                },
-                data: [820, 832, 901, 934, 1290, 1330, 1320]
+                }
               }
             ]
           };
@@ -395,22 +433,21 @@
                 type: 'shadow'
               }
             },
+            grid: {
+              left: '1%',
+              right: '4%',
+              bottom: '1%',
+              containLabel: true
+            },
             legend: {
               data: ['Income','Expenses']
-            },
-            grid: {
-              left: '3%',
-              right: '4%',
-              bottom: '3%',
-              containLabel: true
             },
             xAxis: [
               {
                 type: 'category',
                 axisTick: {
                   show: false
-                },
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                }
               }
             ],
             yAxis: [
@@ -418,9 +455,20 @@
                 type: 'value'
               }
             ],
+            dataset: {
+              source: [
+                ['week', 'Income', 'Expenses'],
+                ['周一', 120, -71],
+                ['周二', 200, -120],
+                ['周三', 150, -230],
+                ['周四', 80, -190],
+                ['周五', 70, -80],
+                ['周六', 110, -30],
+                ['周日', 130, -110]
+              ]
+            },
             series: [
               {
-                name: 'Income',
                 type: 'bar',
                 stack: 'Total',
                 label: {
@@ -428,11 +476,9 @@
                 },
                 emphasis: {
                   focus: 'series'
-                },
-                data: [320, 302, 341, 374, 390, 450, 420]
+                }
               },
               {
-                name: 'Expenses',
                 type: 'bar',
                 stack: 'Total',
                 label: {
@@ -440,8 +486,7 @@
                 },
                 emphasis: {
                   focus: 'series'
-                },
-                data: [-120, -132, -101, -134, -190, -230, -210]
+                }
               }
             ]
           };
@@ -451,28 +496,26 @@
             tooltip: {
               trigger: 'axis',
               axisPointer: {
-                type: 'cross',
-                crossStyle: {
-                  color: '#999'
-                }
+                type: 'shadow'
               }
+            },
+            grid: {
+              left: '1%',
+              right: '4%',
+              bottom: '1%',
+              containLabel: true
             },
             legend: {
               data: ['Evaporation', 'Precipitation', 'Temperature']
             },
             xAxis: [
               {
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                axisPointer: {
-                  type: 'shadow'
-                }
+                type: 'category'
               }
             ],
             yAxis: [
               {
                 type: 'value',
-                name: 'Precipitation',
                 min: 0,
                 max: 250,
                 interval: 50,
@@ -482,7 +525,6 @@
               },
               {
                 type: 'value',
-                name: 'Temperature',
                 min: 0,
                 max: 25,
                 interval: 5,
@@ -491,41 +533,31 @@
                 }
               }
             ],
+            dataset: {
+              source: [
+                ['param', 'Evaporation', 'Precipitation', 'Temperature'],
+                ['周一', 10.5, 5.9, 2.0],
+                ['周二', 23.2, 11.5, 3.8],
+                ['周三', 25.6, 26.4, 5.5],
+                ['周四', 76.7, 28.7, 10.2],
+                ['周五', 135.6, 70.7, 11.3],
+                ['周六', 162.2, 175.6, 18.3],
+                ['周日', 171.8, 182.2, 21.6]
+              ]
+            },
             series: [
               {
                 name: 'Evaporation',
-                type: 'bar',
-                tooltip: {
-                  valueFormatter: function (value) {
-                    return value + ' ml';
-                  }
-                },
-                data: [
-                  2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3
-                ]
+                type: 'bar'
               },
               {
                 name: 'Precipitation',
-                type: 'bar',
-                tooltip: {
-                  valueFormatter: function (value) {
-                    return value + ' ml';
-                  }
-                },
-                data: [
-                  2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
-                ]
+                type: 'bar'
               },
               {
                 name: 'Temperature',
                 type: 'line',
-                yAxisIndex: 1,
-                tooltip: {
-                  valueFormatter: function (value) {
-                    return value + ' °C';
-                  }
-                },
-                data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+                yAxisIndex: 1
               }
             ]
           };
@@ -534,12 +566,12 @@
           option = {
             tooltip: {
               trigger: 'item',
-              formatter: '{a} <br/>{b} : {c} ({d}%)'
+              formatter: '{b}: {c} ({d}%)'
             },
             legend: {
-              bottom: 10,
+              bottom: 0,
               left: 'center',
-              data: ['CityA', 'CityB', 'CityD', 'CityC', 'CityE']
+              data: ['CityA', 'CityB', 'CityC', 'CityD', 'CityE']
             },
             series: [
               {
@@ -548,11 +580,11 @@
                 center: ['50%', '50%'],
                 selectedMode: 'single',
                 data: [
-                  { value: 154, name: 'CityE' },
+                  { value: 335, name: 'CityA' },
+                  { value: 434, name: 'CityB' },
                   { value: 735, name: 'CityC' },
                   { value: 510, name: 'CityD' },
-                  { value: 434, name: 'CityB' },
-                  { value: 335, name: 'CityA' }
+                  { value: 154, name: 'CityE' }
                 ],
                 emphasis: {
                   itemStyle: {
@@ -571,7 +603,7 @@
               trigger: 'item'
             },
             legend: {
-              top: '5%',
+              bottom: '0',
               left: 'center'
             },
             series: [
@@ -600,7 +632,6 @@
                   show: false
                 },
                 data: [
-                  { value: 1048, name: 'Search Engine' },
                   { value: 735, name: 'Direct' },
                   { value: 580, name: 'Email' },
                   { value: 484, name: 'Union Ads' },
@@ -613,36 +644,23 @@
         case 'nightingaleChart':
           option = {
             legend: {
-              top: 'bottom'
-            },
-            toolbox: {
-              show: true,
-              feature: {
-                mark: { show: true },
-                dataView: { show: true, readOnly: false },
-                restore: { show: true },
-                saveAsImage: { show: true }
-              }
+              bottom: '0'
             },
             series: [
               {
                 name: 'Nightingale Chart',
                 type: 'pie',
-                radius: [50, 250],
+                radius: [15, 150],
                 center: ['50%', '50%'],
                 roseType: 'area',
                 itemStyle: {
                   borderRadius: 8
                 },
                 data: [
-                  { value: 40, name: 'rose 1' },
+                  { value: 54, name: 'rose 1' },
                   { value: 38, name: 'rose 2' },
-                  { value: 32, name: 'rose 3' },
-                  { value: 30, name: 'rose 4' },
-                  { value: 28, name: 'rose 5' },
-                  { value: 26, name: 'rose 6' },
-                  { value: 22, name: 'rose 7' },
-                  { value: 18, name: 'rose 8' }
+                  { value: 22, name: 'rose 3' },
+                  { value: 40, name: 'rose 4' }
                 ]
               }
             ]
@@ -655,7 +673,8 @@
               formatter: '{a} <br/>{b} : {c}%'
             },
             legend: {
-              data: ['Show', 'Click', 'Visit', 'Inquiry', 'Order']
+              data: ['Show', 'Click', 'Visit', 'Inquiry', 'Order'],
+              bottom: 0
             },
             series: [
               {
@@ -712,7 +731,7 @@
                 },
                 data: [
                   {
-                    value: 50,
+                    value: 30,
                     name: 'SCORE'
                   }
                 ]
