@@ -64,7 +64,7 @@
             @dragging="onDragging"
             @resizing="onResizing"
             @refLineParams="getRefLineParams">
-            <ECharts :id="'container' + index" :type="item.type" :width="item.w" :height="item.h"></ECharts>
+            <ECharts :id="'container' + index" :type="item.type" :width="item.w" :height="item.h" :color="chartThemeList[chartThemeIndex]"></ECharts>
           </vdr>
         </template>
         <!-- 辅助线 -->
@@ -211,7 +211,7 @@
         previewMode: 'adaptive',
         chartThemeList: [
           ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'],
-          ['#c23531','#2f4554','#61a0a8','#d48265','#91c7ae','#749f83','#ca8622','#bda29a','#546570'],
+          ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#546570'],
           ['#dd6b66', '#759aa0', '#ea7e53', '#eedd78', '#73a373', '#73b9bc', '#7289ab', '#91ca8c', '#f49f42'],
           ['#37A2DA', '#9FE6B8', '#FFDB5C', '#ff9f7f', '#E062AE', '#E690D1', '#9d96f5', '#8378EA', '#96BFFF']
         ],
